@@ -36,7 +36,7 @@ const characterSchema = new mongoose.Schema(
     items: { type: [String], default: ["Rope", "Food"] },
     features: {
       type: [featureSpellSchema],
-      default: [{ name: "Starter Pack", description: "Includes rope and rations" }]
+      default: [{ name: "Adventurer", description: "Excited for adventure. You can re-roll one die per game." }]
     },
     spells: {
       type: [featureSpellSchema],
