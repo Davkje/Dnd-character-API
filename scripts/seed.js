@@ -11,40 +11,43 @@ const characters = [
     class: "Ranger",
     race: "Elf",
     level: 3,
-    hp: 13,
-    speed: 25,
+    hp: 24,
+    speed: 30,
     armourClass: 14,
     abilities: {
-      strength: 10,
-      dexterity: 18,
-      constitution: 11,
+      strength: 13,
+      dexterity: 19,
+      constitution: 13,
       intelligence: 12,
       wisdom: 13,
-      charisma: 14
+      charisma: 9
     },
-    proficientSkills: ["stealth", "acrobatics"],
-    proficientSavingThrows: ["dexterity", "intelligence"],
-    items: ["Dagger", "Cloak"],
-    features: [{ name: "Sneak Attack", description: "Extra damage once per turn" }],
-    spells: []
+    proficientSkills: ["stealth", "athletics", "persuasions", "perception", "investigation", "history"],
+    proficientSavingThrows: ["dexterity", "strength"],
+    items: ["Bow", "Cloak", "Sword"],
+    features: [
+      { name: "Favored Enemy", description: "You have advantage on Survival checks to track your favored enemies, as well as on INT checks to recall information about them. You also learn one language of your choice that is spoken by your favored enemies, if they speak one at all." },
+      { name: "Figting Style", description: "You gain a +2 bonus to attack rolls you make with ranged weapons" }
+    ],
+    spells: [{ name: "Hunters Mark", description: "Extra damage on marked target" }]
   },
   {
     name: "Max",
     class: "Wizard",
     race: "Human",
-    level: 3,
-    hp: 28,
+    level: 2,
+    hp: 14,
     speed: 30,
-    armourClass: 12,
+    armourClass: 11,
     abilities: {
-      strength: 8,
-      dexterity: 14,
-      constitution: 12,
-      intelligence: 18,
-      wisdom: 15,
-      charisma: 10
+      strength: 10,
+      dexterity: 13,
+      constitution: 13,
+      intelligence: 17,
+      wisdom: 14,
+      charisma: 13
     },
-    proficientSkills: ["arcana", "history"],
+    proficientSkills: ["animal handling", "arcana", "history", "survival"],
     proficientSavingThrows: ["intelligence", "wisdom"],
     items: ["Spellbook", "Wand"],
     features: [{ name: "Arcane Recovery", description: "Recover spell slots once per day" }],
@@ -54,23 +57,24 @@ const characters = [
     name: "Klingan",
     class: "Barbarian",
     race: "Human",
-    level: 2,
-    hp: 18,
+    level: 3,
+    hp: 29,
     speed: 30,
-    armourClass: 16,
+    armourClass: 15,
     abilities: {
-      strength: 12,
-      dexterity: 10,
-      constitution: 14,
-      intelligence: 14,
-      wisdom: 16,
-      charisma: 12
+      strength: 13,
+      dexterity: 14,
+      constitution: 16,
+      intelligence: 12,
+      wisdom: 9,
+      charisma: 10
     },
-    proficientSkills: ["medicine", "religion"],
-    proficientSavingThrows: ["wisdom", "charisma"],
-    items: ["Mace", "Shield", "Holy Symbol"],
-    features: [{ name: "Divine Domain", description: "Choose a domain to gain powers" }],
-    spells: [{ name: "Cure Wounds", description: "Heal a creature you touch" }]
+    proficientSkills: ["athletics", "perception"],
+    proficientSavingThrows: ["strength", "constitution"],
+    items: ["Weapon Bag of Holding", "Shield", "Helmet"],
+    features: [{
+      name: "Rage", description: "As a bonus action enter a rage for up to 1 minute (10 rounds). You gain advantage on STR checks and saving throws(not attacks), + 2 melee damage with STR weapons, resistance to bludgeoning, piercing, slashing damage.You can't cast or concentrate on spells while raging. Your rage ends early if you are knocked unconscious or if your turn ends and you haven’t attacked a hostile creature since your last turn or taken damage since then.You can also end your rage as a bonus action."
+    }],
   }
 ];
 
