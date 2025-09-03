@@ -17,10 +17,10 @@ const characters = [
     abilities: {
       strength: 10,
       dexterity: 18,
-      intellect: 12,
+      constitution: 11,
+      intelligence: 12,
       wisdom: 13,
-      charisma: 14,
-      constitution: 11
+      charisma: 14
     },
     proficientSkills: ["stealth", "acrobatics"],
     proficientSavingThrows: ["dexterity", "intelligence"],
@@ -39,13 +39,13 @@ const characters = [
     abilities: {
       strength: 8,
       dexterity: 14,
-      intellect: 18,
+      constitution: 12,
+      intelligence: 18,
       wisdom: 15,
-      charisma: 10,
-      constitution: 12
+      charisma: 10
     },
     proficientSkills: ["arcana", "history"],
-    proficientSavingThrows: ["intellect", "wisdom"],
+    proficientSavingThrows: ["intelligence", "wisdom"],
     items: ["Spellbook", "Wand"],
     features: [{ name: "Arcane Recovery", description: "Recover spell slots once per day" }],
     spells: [{ name: "Magic Missile", description: "Create 3 darts of magical force" }]
@@ -61,10 +61,10 @@ const characters = [
     abilities: {
       strength: 12,
       dexterity: 10,
-      intellect: 14,
+      constitution: 14,
+      intelligence: 14,
       wisdom: 16,
-      charisma: 12,
-      constitution: 14
+      charisma: 12
     },
     proficientSkills: ["medicine", "religion"],
     proficientSavingThrows: ["wisdom", "charisma"],
