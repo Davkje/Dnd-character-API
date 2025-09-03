@@ -7,9 +7,9 @@ dotenv.config();
 
 const characters = [
   {
-    name: "Lyria",
-    class: "Rogue",
-    race: "Halfling",
+    name: "Oobi",
+    class: "Ranger",
+    race: "Elf",
     level: 3,
     hp: 13,
     speed: 25,
@@ -22,17 +22,17 @@ const characters = [
       charisma: 14,
       constitution: 11
     },
-    proficientSkills: ["Stealth", "Acrobatics"],
-    proficientSavingThrows: ["Dexterity", "Intelligence"],
+    proficientSkills: ["stealth", "acrobatics"],
+    proficientSavingThrows: ["dexterity", "intelligence"],
     items: ["Dagger", "Cloak"],
     features: [{ name: "Sneak Attack", description: "Extra damage once per turn" }],
     spells: []
   },
   {
-    name: "Tharion",
+    name: "Max",
     class: "Wizard",
-    race: "Elf",
-    level: 5,
+    race: "Human",
+    level: 3,
     hp: 28,
     speed: 30,
     armourClass: 12,
@@ -44,15 +44,15 @@ const characters = [
       charisma: 10,
       constitution: 12
     },
-    proficientSkills: ["Arcana", "History"],
-    proficientSavingThrows: ["Intellect", "Wisdom"],
+    proficientSkills: ["arcana", "history"],
+    proficientSavingThrows: ["intellect", "wisdom"],
     items: ["Spellbook", "Wand"],
     features: [{ name: "Arcane Recovery", description: "Recover spell slots once per day" }],
     spells: [{ name: "Magic Missile", description: "Create 3 darts of magical force" }]
   },
   {
-    name: "Mira",
-    class: "Cleric",
+    name: "Klingan",
+    class: "Barbarian",
     race: "Human",
     level: 2,
     hp: 18,
@@ -66,8 +66,8 @@ const characters = [
       charisma: 12,
       constitution: 14
     },
-    proficientSkills: ["Medicine", "Religion"],
-    proficientSavingThrows: ["Wisdom", "Charisma"],
+    proficientSkills: ["medicine", "religion"],
+    proficientSavingThrows: ["wisdom", "charisma"],
     items: ["Mace", "Shield", "Holy Symbol"],
     features: [{ name: "Divine Domain", description: "Choose a domain to gain powers" }],
     spells: [{ name: "Cure Wounds", description: "Heal a creature you touch" }]
