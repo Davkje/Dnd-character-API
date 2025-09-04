@@ -12,8 +12,10 @@ const characters = [
     race: "Elf",
     level: 3,
     hp: 24,
+    hitDie: "d10",
     speed: 30,
     armourClass: 14,
+    primaryAbility: "wisdom",
     abilities: {
       strength: 13,
       dexterity: 19,
@@ -37,8 +39,10 @@ const characters = [
     race: "Human",
     level: 2,
     hp: 14,
+    hitDie: "d6",
     speed: 30,
     armourClass: 11,
+    primaryAbility: "intelligence",
     abilities: {
       strength: 10,
       dexterity: 13,
@@ -59,8 +63,10 @@ const characters = [
     race: "Human",
     level: 3,
     hp: 29,
+    hitDie: "d12",
     speed: 30,
     armourClass: 15,
+    primaryAbility: "strength",
     abilities: {
       strength: 13,
       dexterity: 14,

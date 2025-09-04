@@ -59,12 +59,12 @@ router.post("/", async (req, res, next) => {
   try {
     let {
       name, class: cls, race, level, hp, speed, armourClass,
-      abilities, proficiencyBonus, proficientSkills,
+      abilities, hitDie, primaryAbility, proficiencyBonus, proficientSkills,
       proficientSavingThrows, items, features, spells
     } = req.body;
 
-    if (!name || !cls || !race || hp == null || speed == null || armourClass == null) {
-      return res.status(400).json({ error: "Fält saknas: name, class, race, hp, speed, armourClass krävs" });
+    if (!name || !cls || !race || hp == null || speed == null || armourClass == null || !primaryAbility || !hitDie) {
+      return res.status(400).json({ error: "Fält saknas: name, class, race, hp, speed, armourClass, hitDie, primaryAbility krävs" });
     }
 
     let characterData = {
@@ -75,6 +75,8 @@ router.post("/", async (req, res, next) => {
       hp,
       speed,
       armourClass,
+      hitDie,
+      primaryAbility,
       abilities: abilities || {},
       proficiencyBonus: proficiencyBonus != null ? proficiencyBonus : 2,
       proficientSkills: proficientSkills || [],
@@ -102,7 +104,7 @@ router.patch("/:id", async (req, res, next) => {
     // Endast tillåtna fält
     const allowed = [
       "name", "class", "race", "level", "hp", "speed", "armourClass",
-      "abilities", "proficiencyBonus", "proficientSkills",
+      "abilities", "hitDie", "primaryAbility", "proficiencyBonus", "proficientSkills",
       "proficientSavingThrows", "items", "features", "spells"
     ];
     const filteredUpdates = {};
