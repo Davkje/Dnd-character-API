@@ -7,7 +7,7 @@ dotenv.config();
 
 const characters = [
   {
-    name: "Oobi",
+    name: "Oobi Doobi",
     class: "Ranger",
     race: "Elf",
     level: 3,
