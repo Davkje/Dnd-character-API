@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import Character from "../src/models/Character.js";
-import { applyDefaults } from "../src/routes/characters.js";
 
 dotenv.config();
 
@@ -15,7 +14,8 @@ const characters = [
     hitDie: "d10",
     speed: 30,
     armourClass: 14,
-    primaryAbility: "wisdom",
+    primaryMeleeAbility: "dexterity",
+    primarySpellAbility: "wisdom",
     abilities: {
       strength: 13,
       dexterity: 19,
@@ -26,12 +26,18 @@ const characters = [
     },
     proficientSkills: ["stealth", "athletics", "persuasions", "perception", "investigation", "history"],
     proficientSavingThrows: ["dexterity", "strength"],
-    items: ["Bow", "Cloak", "Sword"],
-    features: [
-      { name: "Favored Enemy", description: "You have advantage on Survival checks to track your favored enemies, as well as on INT checks to recall information about them. You also learn one language of your choice that is spoken by your favored enemies, if they speak one at all." },
-      { name: "Figting Style", description: "You gain a +2 bonus to attack rolls you make with ranged weapons" }
+    items: [
+      { name: "Bow", description: "A simple longbow, range 150/600" },
+      { name: "Cloak", description: "Hooded cloak for stealth and warmth" },
+      { name: "Sword", description: "Steel sword for melee combat" }
     ],
-    spells: [{ name: "Hunters Mark", description: "Extra damage on marked target" }]
+    features: [
+      { name: "Favored Enemy", description: "Advantage on Survival checks against favored enemies" },
+      { name: "Fighting Style", description: "+2 bonus to attack rolls with ranged weapons" }
+    ],
+    spells: [
+      { name: "Hunter's Mark", description: "Deal extra damage to marked target" }
+    ]
   },
   {
     name: "Max",
@@ -42,7 +48,8 @@ const characters = [
     hitDie: "d6",
     speed: 30,
     armourClass: 11,
-    primaryAbility: "intelligence",
+    primaryMeleeAbility: "strength",
+    primarySpellAbility: "intelligence",
     abilities: {
       strength: 10,
       dexterity: 13,
@@ -53,9 +60,16 @@ const characters = [
     },
     proficientSkills: ["animal handling", "arcana", "history", "survival"],
     proficientSavingThrows: ["intelligence", "wisdom"],
-    items: ["Spellbook", "Wand"],
-    features: [{ name: "Arcane Recovery", description: "Recover spell slots once per day" }],
-    spells: [{ name: "Magic Missile", description: "Create 3 darts of magical force" }]
+    items: [
+      { name: "Spellbook", description: "Contains all known spells" },
+      { name: "Wand", description: "Focus for casting spells" }
+    ],
+    features: [
+      { name: "Arcane Recovery", description: "Recover spell slots once per day" }
+    ],
+    spells: [
+      { name: "Magic Missile", description: "Create 3 darts of magical force" }
+    ]
   },
   {
     name: "Klingan",
@@ -66,7 +80,7 @@ const characters = [
     hitDie: "d12",
     speed: 30,
     armourClass: 15,
-    primaryAbility: "strength",
+    primaryMeleeAbility: "strength",
     abilities: {
       strength: 13,
       dexterity: 14,
@@ -77,10 +91,14 @@ const characters = [
     },
     proficientSkills: ["athletics", "perception"],
     proficientSavingThrows: ["strength", "constitution"],
-    items: ["Weapon Bag of Holding", "Shield", "Helmet"],
-    features: [{
-      name: "Rage", description: "As a bonus action enter a rage for up to 1 minute (10 rounds). You gain advantage on STR checks and saving throws(not attacks), + 2 melee damage with STR weapons, resistance to bludgeoning, piercing, slashing damage.You can't cast or concentrate on spells while raging. Your rage ends early if you are knocked unconscious or if your turn ends and you haven’t attacked a hostile creature since your last turn or taken damage since then.You can also end your rage as a bonus action."
-    }],
+    items: [
+      { name: "Weapon Bag of Holding", description: "Stores weapons securely" },
+      { name: "Shield", description: "Provides +2 to AC" },
+      { name: "Helmet", description: "Protects your head" }
+    ],
+    features: [
+      { name: "Rage", description: "Gain advantage on STR checks and saving throws, +2 melee damage, resistance to bludgeoning/piercing/slashing, cannot cast spells while raging" }
+    ]
   }
 ];
 
@@ -92,10 +110,7 @@ async function seed() {
     await Character.deleteMany({});
     console.log("🗑️  Cleared old characters");
 
-    // Lägg till default spells, features och items automatiskt
-    const charactersWithDefaults = characters.map(c => applyDefaults(c));
-
-    const created = await Character.insertMany(charactersWithDefaults);
+    const created = await Character.insertMany(characters);
     console.log(`🌱 Seeded ${created.length} characters`);
 
     mongoose.disconnect();

@@ -12,10 +12,10 @@ const abilitiesSchema = new mongoose.Schema(
   { _id: false }
 );
 
-const featureSpellSchema = new mongoose.Schema(
+const objectSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
-    description: { type: String, required: true }
+    description: { type: String }
   },
   { _id: false }
 );
@@ -30,20 +30,28 @@ const characterSchema = new mongoose.Schema(
     speed: { type: Number, required: true, min: 0 },
     armourClass: { type: Number, required: true, min: 0 },
     abilities: { type: abilitiesSchema, default: () => ({}) },
-    primaryAbility: { type: String, required: true, trim: true },
+    primaryWeaponAbility: {
+      type: String,
+      enum: ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"],
+      default: null,
+      trim: true
+    },
+    primarySpellAbility: {
+      type: String,
+      enum: ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"],
+      default: null,
+      trim: true
+    },
     hitDie: { type: String, required: true, trim: true },
     proficiencyBonus: { type: Number, default: 2 },
     proficientSkills: { type: [String], default: [] },
     proficientSavingThrows: { type: [String], default: [] },
-    items: { type: [String], default: ["Rope", "Food"] },
-    features: {
-      type: [featureSpellSchema],
-      default: [{ name: "Adventurer", description: "Excited for adventure. You can re-roll one die per game." }]
+    items: {
+      type: [objectSchema],
+      default: [{ name: "Rations", description: "Simple travel food" }]
     },
-    spells: {
-      type: [featureSpellSchema],
-      default: [{ name: "Firebolt", description: "Deal 1d10 fire damage at range" }]
-    }
+    features: { type: [objectSchema], default: [] },
+    spells: { type: [objectSchema], default: [] },
   },
   { timestamps: true }
 );
