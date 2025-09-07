@@ -29,7 +29,7 @@ router.post("/", async (req, res, next) => {
   try {
     let {
       name, class: cls, race, level, hp, speed, armourClass,
-      abilities, hitDie, primaryMeleeAbility, primarySpellAbility,
+      abilities, hitDie, primaryWeaponAbility, primarySpellAbility,
       proficiencyBonus, proficientSkills, proficientSavingThrows,
       items, features, spells
     } = req.body;
@@ -49,7 +49,7 @@ router.post("/", async (req, res, next) => {
       speed,
       armourClass,
       hitDie,
-      primaryMeleeAbility: primaryMeleeAbility || null,
+      primaryWeaponAbility: primaryWeaponAbility || null,
       primarySpellAbility: primarySpellAbility || null,
       abilities: abilities || {},
       proficiencyBonus: proficiencyBonus != null ? proficiencyBonus : 2,
@@ -75,7 +75,7 @@ router.patch("/:id", async (req, res, next) => {
 
     const allowed = [
       "name", "class", "race", "level", "hp", "speed", "armourClass",
-      "abilities", "hitDie", "primaryMeleeAbility", "primarySpellAbility",
+      "abilities", "hitDie", "primaryWeaponAbility", "primarySpellAbility",
       "proficiencyBonus", "proficientSkills", "proficientSavingThrows",
       "items", "features", "spells"
     ];

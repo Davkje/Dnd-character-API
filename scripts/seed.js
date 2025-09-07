@@ -14,7 +14,7 @@ const characters = [
     hitDie: "d10",
     speed: 30,
     armourClass: 14,
-    primaryMeleeAbility: "dexterity",
+    primaryWeaponAbility: "dexterity",
     primarySpellAbility: "wisdom",
     abilities: {
       strength: 13,
@@ -48,7 +48,7 @@ const characters = [
     hitDie: "d6",
     speed: 30,
     armourClass: 11,
-    primaryMeleeAbility: "strength",
+    primaryWeaponAbility: "strength",
     primarySpellAbility: "intelligence",
     abilities: {
       strength: 10,
@@ -80,7 +80,7 @@ const characters = [
     hitDie: "d12",
     speed: 30,
     armourClass: 15,
-    primaryMeleeAbility: "strength",
+    primaryWeaponAbility: "strength",
     abilities: {
       strength: 13,
       dexterity: 14,
